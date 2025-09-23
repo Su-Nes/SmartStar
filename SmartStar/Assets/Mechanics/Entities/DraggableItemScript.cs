@@ -5,10 +5,38 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class DraggableItemScript : MonoBehaviour
 {
-    public void DragObject(BaseEventData eventData)
+    [SerializeField] private float forceToMouse = 20f;
+    
+    private bool holdingDown;
+    
+    private Rigidbody2D rb;
+    
+    private void Awake()
     {
-        transform.position = new Vector2(transform.position.x + Input.GetAxis("Mouse X"), transform.position.y + Input.GetAxis("Mouse Y"));
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void StartDrag(BaseEventData eventData)
+    {
+        holdingDown = true;
+    }
+    
+    public void LeaveDrag(BaseEventData eventData)
+    {
+        holdingDown = false;
+    }
+
+    private void Update()
+    {
+        if (holdingDown)
+        {
+            rb.AddForce((Input.mousePosition - transform.position) * (forceToMouse * Time.deltaTime * Vector2.Distance(transform.position, Input.mousePosition)));
+        }
+        
+        if(Input.GetMouseButtonUp(0))
+            holdingDown = false;
     }
 }
