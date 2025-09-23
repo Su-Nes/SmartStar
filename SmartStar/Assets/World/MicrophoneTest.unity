@@ -590,6 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumTriggerVolume: 0.1
+  waitAfterTrigger: 1
   volumeEvent:
     m_PersistentCalls:
       m_Calls:
