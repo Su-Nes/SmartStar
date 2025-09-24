@@ -13,9 +13,9 @@ public class DraggableItemScript : MonoBehaviour
     public string ItemKey = "default";
     
     private Transform target;
-    
-    private bool holdingDown;
-    
+    private bool holdingDown, itemGrabbable = true;
+    public bool HoldingDown => holdingDown;
+
     private Rigidbody2D rb;
     
     private void Awake()
@@ -25,6 +25,9 @@ public class DraggableItemScript : MonoBehaviour
 
     public void StartDrag()
     {
+        if (!itemGrabbable)
+            return;
+        
         RemoveTarget();
         
         holdingDown = true;
@@ -62,5 +65,10 @@ public class DraggableItemScript : MonoBehaviour
         
         if(Input.GetMouseButtonUp(0) && target == null)
             LeaveDrag();
+    }
+
+    public void SetItemActivity(bool state)
+    {
+        itemGrabbable = state;
     }
 }
