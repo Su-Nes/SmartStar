@@ -51,7 +51,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Item
   targetKey: default
-  eventOnCorrectKey:
+  onCorrectKey:
+    m_PersistentCalls:
+      m_Calls: []
+  onGetItem:
     m_PersistentCalls:
       m_Calls: []
 --- !u!61 &3565692947716225920

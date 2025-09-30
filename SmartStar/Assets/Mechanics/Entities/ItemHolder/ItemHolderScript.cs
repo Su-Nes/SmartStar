@@ -24,7 +24,7 @@ public class ItemHolderScript : MonoBehaviour
         {
             if (holderOccupied)
                 currentHeldItem.RemoveTarget(); // remove current held item to hold the new one
-                
+            
             holderOccupied = true;
             currentHeldItem = collision.GetComponent<DraggableItemScript>();
             currentHeldItem.SetTarget(transform);
