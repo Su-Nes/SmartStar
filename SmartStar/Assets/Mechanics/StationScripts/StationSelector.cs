@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class StationSelector : MonoBehaviour
 {
     public static StationSelector Instance;
+    
+    [SerializeField] private GameObject[] stations;
+    private string activeStation;
 
 
     private void Awake()
@@ -19,21 +22,31 @@ public class StationSelector : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        CloseStations();
     }
-
-    public void SelectStation(string stationName)
+    
+    public void CreateStationWithName(string stationName)
     {
-        foreach (Transform child in transform)
+        CloseStations();
+        
+        foreach (GameObject station in stations)
         {
-            child.gameObject.SetActive(child.name.Contains(stationName));
+            if (station.name.ToLower().Contains(stationName.ToLower()))
+            {
+                Instantiate(station, transform);
+                activeStation = station.name;
+                break;
+            }
         }
     }
 
     public void CloseStations()
     {
+        activeStation = "";
         foreach (Transform child in transform)
         {
-            child.gameObject.SetActive(false);
+            Destroy(child.gameObject);
         }
     }
 }

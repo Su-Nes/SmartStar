@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class LeaveStation : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         GetComponent<Button>().onClick.AddListener(StationSelector.Instance.CloseStations);
     }
