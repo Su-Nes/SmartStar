@@ -36,11 +36,12 @@ public class StationSelector : MonoBehaviour
             {
                 Instantiate(station, transform);
                 activeStation = station.name;
-                return;
+                break;
             }
-            
-            Debug.LogError(stationName + " doesn't exist");
         }
+        
+        if(activeStation == "")
+            Debug.LogError($"{stationName} not found in station array.");
     }
 
     public void CloseStations()
