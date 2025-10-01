@@ -36,8 +36,10 @@ public class StationSelector : MonoBehaviour
             {
                 Instantiate(station, transform);
                 activeStation = station.name;
-                break;
+                return;
             }
+            
+            Debug.LogError(stationName + " doesn't exist");
         }
     }
 

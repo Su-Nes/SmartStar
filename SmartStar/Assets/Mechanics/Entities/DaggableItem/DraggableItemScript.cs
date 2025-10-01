@@ -13,6 +13,7 @@ public class DraggableItemScript : MonoBehaviour
     public string ItemKey = "default";
     
     private Transform target;
+    private float startGravityScale;
     private bool holdingDown, itemGrabbable = true;
     public bool HoldingDown => holdingDown;
 
@@ -21,6 +22,7 @@ public class DraggableItemScript : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        startGravityScale = rb.gravityScale;
     }
 
     public void StartDrag()
@@ -45,12 +47,14 @@ public class DraggableItemScript : MonoBehaviour
         target = newTarget;
         LeaveDrag();
         rb.drag = dragWhenHeld;
+        rb.gravityScale = 0f;
     }
 
     public void RemoveTarget()
     {
         target = null;
         rb.drag = dragOutOfDrag;
+        rb.gravityScale = startGravityScale;
     }
 
     private void Update()
