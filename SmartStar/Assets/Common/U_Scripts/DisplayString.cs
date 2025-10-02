@@ -10,11 +10,11 @@ public class DisplayString : MonoBehaviour
     
     public void ShowStringTMP(string text)
     {
-        GetComponent<TextMeshProUGUI>().text = $"{textBefore}{text}{textAfter}";
+        GetComponent<TMP_Text>().text = $"{textBefore}{text}{textAfter}";
     }
 
     public void ShowStringRaw(string text)
     {
-        GetComponent<TextMeshProUGUI>().text = text;
+        GetComponent<TMP_Text>().text = text;
     }
 }
