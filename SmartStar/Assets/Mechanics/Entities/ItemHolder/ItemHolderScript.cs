@@ -33,7 +33,7 @@ public class ItemHolderScript : MonoBehaviour
             if (collision.GetComponent<DraggableItemScript>().ItemKey == targetKey)
             {
                 onCorrectKey.Invoke();
-                print("event invoked");
+                //print("event invoked");
             }
         }
     }

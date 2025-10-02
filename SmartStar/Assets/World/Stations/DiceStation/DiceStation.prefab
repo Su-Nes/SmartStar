@@ -1171,7 +1171,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  turnCount: 10
+  turnCount: 3
   canRepeat: 0
 --- !u!1 &2821351709204809631
 GameObject:
