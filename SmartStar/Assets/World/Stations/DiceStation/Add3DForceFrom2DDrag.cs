@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,10 @@ public class Add3DForceFrom2DDrag : MonoBehaviour
     [SerializeField] private Rigidbody rbToLaunch;
     
     [SerializeField] private float dragTime, forceMult, rotationForce;
+    [SerializeField] private int launchCount = 1;
+    
+    [SerializeField] private UnityEvent onLaunch;
+    
     private bool isDragging = true;
     private Vector2 dragStartPos, dragEndPos;
     
@@ -39,8 +44,20 @@ public class Add3DForceFrom2DDrag : MonoBehaviour
 
     private void LaunchCube()
     {
-        rbToLaunch.AddForce((dragEndPos - dragStartPos) * forceMult, ForceMode.Impulse);
-        rbToLaunch.AddTorque(Random.insideUnitSphere.normalized * rotationForce, ForceMode.Impulse);
+        if (launchCount > 0)
+        {
+            rbToLaunch.AddForce((dragEndPos - dragStartPos) * forceMult, ForceMode.Impulse);
+            rbToLaunch.AddTorque(Random.insideUnitSphere.normalized * rotationForce, ForceMode.Impulse);
+            
+            onLaunch.Invoke();
+            
+            launchCount--;
+        }
+    }
+
+    public void AddLaunches(int amount)
+    {
+        launchCount += amount;
     }
 
     private IEnumerator DragTime()
