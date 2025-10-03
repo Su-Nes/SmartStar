@@ -1314,8 +1314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c322a0d4932d4d42924def65bb365a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpValue: 0.005
+  lerpValuePosition: 0.1
+  lerpValueRotation: 0.1
   offsetPosition: {x: 0, y: 3, z: -2}
+  offsetLookPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2879798235827120854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,7 +3465,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 420048587542212764, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
       propertyPath: m_Name
-      value: DiceStation
+      value: edit-diceStation
       objectReference: {fileID: 0}
     - target: {fileID: 508842321063681396, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
       propertyPath: m_Pivot.x
@@ -3545,6 +3547,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2520917061382010275, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6e07517cbf7ca341a7affef3eb78fe5, type: 3}
     - target: {fileID: 3693141914873554688, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
