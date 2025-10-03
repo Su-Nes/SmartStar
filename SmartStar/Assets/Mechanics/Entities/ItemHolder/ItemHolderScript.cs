@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,7 @@ using UnityEngine.Events;
 public class ItemHolderScript : MonoBehaviour
 {
     [SerializeField] private string targetTag = "Item", targetKey = "default";
-    private DraggableItemScript currentHeldItem;
+    private DraggableItemScript currentHeldItem, itemLeaving;
     private bool holderOccupied, holderActive = true;
     
     [SerializeField] private UnityEvent onCorrectKey;
@@ -22,8 +23,13 @@ public class ItemHolderScript : MonoBehaviour
         
         if (collision.gameObject.CompareTag(targetTag))
         {
+            if (collision.gameObject.GetComponent<DraggableItemScript>() == itemLeaving)
+                return;
+            
+            itemLeaving = null;
+            
             if (holderOccupied)
-                currentHeldItem.RemoveTarget(); // remove current held item to hold the new one
+                RemoveHeldItem(collision); // remove current held item to hold the new one
             
             holderOccupied = true;
             currentHeldItem = collision.GetComponent<DraggableItemScript>();
@@ -42,14 +48,21 @@ public class ItemHolderScript : MonoBehaviour
     {
         if (!holderActive)
             return;
-        
+
         if (collision.gameObject.CompareTag(targetTag))
         {
-            holderOccupied = false;
-            if(!currentHeldItem.HoldingDown)
-                currentHeldItem.RemoveTarget();
-            currentHeldItem = null;
+            RemoveHeldItem(collision);
         }
+        
+        itemLeaving = collision.GetComponent<DraggableItemScript>();
+    }
+
+    private void RemoveHeldItem(Collider2D collision)
+    {
+        holderOccupied = false;
+        if(currentHeldItem != null)
+            currentHeldItem.RemoveTarget();
+        currentHeldItem = null;
     }
 
     public void SetHolderActivity(bool state)

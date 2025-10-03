@@ -8,64 +8,56 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class DraggableItemScript : MonoBehaviour
 {
-    [SerializeField] private bool snapBackMode = true;
-    private Vector3 startPosition;
-    [SerializeField] private float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld;
+    [SerializeField] protected float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld;
     
     public string ItemKey = "default";
     
-    private Transform target;
+    protected Transform target, startPosition;
     private float startGravityScale;
-    private bool holdingDown, itemGrabbable = true;
+    protected bool holdingDown, itemGrabbable = true;
     public bool HoldingDown => holdingDown;
 
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        startGravityScale = rb.gravityScale;
+        startGravityScale = rb.gravityScale; 
     }
 
-    public void StartDrag()
+    public virtual void StartDrag()
     {
         if (!itemGrabbable)
             return;
         
+        holdingDown = true;
         RemoveTarget();
         
-        holdingDown = true;
         rb.drag = dragWhenDragging;
     }
     
-    public void LeaveDrag()
+    public virtual void LeaveDrag()
     {
         holdingDown = false;
         rb.drag = dragOutOfDrag;
     }
 
-    public void SetTarget(Transform newTarget)
+    public virtual void SetTarget(Transform newTarget)
     {
         target = newTarget;
-        LeaveDrag();
+        //LeaveDrag();
         rb.drag = dragWhenHeld;
         rb.gravityScale = 0f;
     }
 
-    public void RemoveTarget()
+    public virtual void RemoveTarget()
     {
         target = null;
         rb.drag = dragOutOfDrag;
         rb.gravityScale = startGravityScale;
-        
-        if (snapBackMode)
-        {
-            transform.position = startPosition;
-            LeaveDrag();
-        }
     }
 
-    private void Update()
+    public virtual  void Update()
     {
         if (target)
         {
