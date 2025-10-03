@@ -1838,7 +1838,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0.011629105}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -3841,6 +3841,10 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5456778157503188823, guid: 67323b340497ed54caff884c6613ddda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4984238303351f543b8d00ea8abd353c, type: 2}
     - target: {fileID: 5514223162118911239, guid: 67323b340497ed54caff884c6613ddda, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
