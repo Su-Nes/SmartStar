@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4726280162577010987
 RectTransform:
   m_ObjectHideFlags: 0
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94be3de45ffd67b4a917c8de7361f94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapBackMode: 1
   forceToMouse: 75
   dragWhenDragging: 0
   dragOutOfDrag: 0
@@ -456,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5067970065381543518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -678,6 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94be3de45ffd67b4a917c8de7361f94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapBackMode: 1
   forceToMouse: 75
   dragWhenDragging: 0
   dragOutOfDrag: 0
@@ -891,6 +893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94be3de45ffd67b4a917c8de7361f94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapBackMode: 1
   forceToMouse: 75
   dragWhenDragging: 0
   dragOutOfDrag: 0
@@ -1179,6 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94be3de45ffd67b4a917c8de7361f94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapBackMode: 1
   forceToMouse: 75
   dragWhenDragging: 0
   dragOutOfDrag: 0
@@ -1411,7 +1415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchoredPosition: {x: -50, y: 29}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9013782485867915070
@@ -1432,7 +1436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6328312371239034066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1536,7 +1540,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7982168924177920554}
         m_TargetAssemblyTypeName: StationManager, Assembly-CSharp
-        m_MethodName: StartStation
+        m_MethodName: ExitStation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1828,6 +1832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrownDraggable
       objectReference: {fileID: 0}
+    - target: {fileID: 4719310439154789482, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6923591996439681698, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_Radius
       value: 30
@@ -1958,6 +1966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SleepyDragggable
       objectReference: {fileID: 0}
+    - target: {fileID: 4719310439154789482, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8213380033892240834, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2084,6 +2096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmileDraggable
       objectReference: {fileID: 0}
+    - target: {fileID: 4719310439154789482, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8213380033892240834, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2209,6 +2225,10 @@ PrefabInstance:
     - target: {fileID: 3586955447963407891, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_Name
       value: SurprisedDraggable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719310439154789482, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8213380033892240834, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_Pivot.x
@@ -2787,6 +2807,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6535485830104914547, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6675687880897996826, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3188,6 +3212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AngryDraggable
       objectReference: {fileID: 0}
+    - target: {fileID: 4719310439154789482, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8213380033892240834, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3313,6 +3341,10 @@ PrefabInstance:
     - target: {fileID: 3586955447963407891, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_Name
       value: HungryDraggable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719310439154789482, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6923591996439681698, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_Radius

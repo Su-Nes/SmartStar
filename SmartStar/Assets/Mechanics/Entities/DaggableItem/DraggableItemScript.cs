@@ -8,6 +8,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class DraggableItemScript : MonoBehaviour
 {
+    [SerializeField] private bool snapBackMode = true;
+    private Vector3 startPosition;
     [SerializeField] private float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld;
     
     public string ItemKey = "default";
@@ -55,6 +57,12 @@ public class DraggableItemScript : MonoBehaviour
         target = null;
         rb.drag = dragOutOfDrag;
         rb.gravityScale = startGravityScale;
+        
+        if (snapBackMode)
+        {
+            transform.position = startPosition;
+            LeaveDrag();
+        }
     }
 
     private void Update()
