@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LerpObjectToPoint : MonoBehaviour
 {
     [Range(0f, 1f)]
-    [SerializeField] private float lerpValue = .1f;
-    [SerializeField] private Vector3 offsetPosition;
+    [SerializeField] private float lerpValuePosition = .1f, lerpValueRotation = .1f;
+    [SerializeField] private Vector3 offsetPosition, offsetLookPosition;
 
     private Transform startPosition, startLookRotation;
 
@@ -27,37 +28,39 @@ public class LerpObjectToPoint : MonoBehaviour
 
     public void LerpToOrigin()
     {
-        StartCoroutine(LerpPosition(startPosition, Vector3.zero));
-        StartCoroutine(LerpRotation(startLookRotation));
+        StopAllCoroutines();
+        StartCoroutine(LerpToPosition(startPosition, Vector3.zero));
+        StartCoroutine(LerpRotation(startLookRotation, Vector3.zero));
     }
     
     public void LerpToTransform(Transform target)
     {
-        StartCoroutine(LerpPosition(target, offsetPosition));
-        StartCoroutine(LerpRotation(target));
+        StopAllCoroutines();
+        StartCoroutine(LerpToPosition(target, offsetPosition));
+        StartCoroutine(LerpRotation(target, offsetLookPosition));
     }
     
-    private IEnumerator LerpPosition(Transform target, Vector3 offset)
+    private IEnumerator LerpToPosition(Transform target, Vector3 offset)
     {
         if (!gameObject.activeSelf)
             StopAllCoroutines();
         
         while (Vector3.Distance(transform.position, target.position + offset) > 1f)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position + offset, lerpValue);
-            yield return null;
+            transform.position = Vector3.Lerp(transform.position, target.position + offset, lerpValuePosition);
+            yield return new WaitForFixedUpdate();
         }
     }
 
-    private IEnumerator LerpRotation(Transform target)
+    private IEnumerator LerpRotation(Transform target, Vector3 offset)
     {
         if (!gameObject.activeSelf)
             StopAllCoroutines();
         
-        while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.position - transform.position, Vector3.up)) > 3f)
+        while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.position + offset - transform.position, Vector3.up)) > 5f)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target.position - transform.position, Vector3.up), lerpValue);
-            yield return null;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target.position - transform.position, Vector3.up), lerpValueRotation);
+            yield return new WaitForFixedUpdate();
         }
     }
 }

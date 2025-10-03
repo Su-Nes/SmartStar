@@ -1171,7 +1171,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  turnCount: 3
+  turnCount: 10
   canRepeat: 0
 --- !u!1 &2821351709204809631
 GameObject:
@@ -1314,8 +1314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c322a0d4932d4d42924def65bb365a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpValue: 0.005
-  offsetPosition: {x: 0, y: 3, z: -2}
+  lerpValuePosition: 0.05
+  lerpValueRotation: 0.2
+  offsetPosition: {x: 0, y: 2, z: -0.25}
+  offsetLookPosition: {x: 0, y: -2, z: 0}
 --- !u!1 &2879798235827120854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,8 +2954,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: 0}
-  m_SizeDelta: {x: 314.2267, y: 314.7203}
+  m_AnchoredPosition: {x: -200, y: -0.0000076293945}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8851427915737288726
 CanvasRenderer:
