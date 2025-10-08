@@ -12,10 +12,14 @@ public class DraggableItemScript : MonoBehaviour
     
     public string ItemKey = "default";
     
-    protected Transform target, startPosition;
+    public Transform target, startPosition;
     private float startGravityScale;
     protected bool holdingDown, itemGrabbable = true;
-    public bool HoldingDown => holdingDown;
+    public bool HoldingDown
+    {
+        get => holdingDown;
+        set => holdingDown = value;
+    }
 
     protected Rigidbody2D rb;
     
@@ -27,6 +31,7 @@ public class DraggableItemScript : MonoBehaviour
 
     public virtual void StartDrag()
     {
+        print($"{name} started dragging");
         if (!itemGrabbable)
             return;
         
@@ -59,7 +64,7 @@ public class DraggableItemScript : MonoBehaviour
 
     public virtual  void Update()
     {
-        if (target)
+        if (target && !holdingDown)
         {
             rb.AddForce((target.position - transform.position) * (forceToMouse * Time.deltaTime * Vector2.Distance(transform.position, target.position)));
         }else if (holdingDown)

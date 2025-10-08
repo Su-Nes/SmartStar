@@ -9,8 +9,9 @@ using UnityEngine.Events;
 public class ItemHolderScript : MonoBehaviour
 {
     [SerializeField] private string targetTag = "Item", targetKey = "default";
+    [SerializeField] private float itemLeaveBuffer = .5f;
     private DraggableItemScript currentHeldItem, itemLeaving;
-    private bool holderOccupied, holderActive = true;
+    private bool holderActive = true, itemCanExit;
     
     [SerializeField] private UnityEvent onCorrectKey;
     [SerializeField] private UnityEvent<string> onGetItem;
@@ -18,48 +19,68 @@ public class ItemHolderScript : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print($"{collision.gameObject.name} entered collider");
+
         if (!holderActive)
             return;
         
         if (collision.gameObject.CompareTag(targetTag))
         {
-            if (collision.gameObject.GetComponent<DraggableItemScript>() == itemLeaving)
-                return;
-            
-            itemLeaving = null;
-            
-            if (holderOccupied)
-                RemoveHeldItem(collision); // remove current held item to hold the new one
-            
-            holderOccupied = true;
-            currentHeldItem = collision.GetComponent<DraggableItemScript>();
-            currentHeldItem.SetTarget(transform);
-            onGetItem.Invoke(currentHeldItem.ItemKey);
-            
-            if (collision.GetComponent<DraggableItemScript>().ItemKey == targetKey)
-            {
-                onCorrectKey.Invoke();
-                //print("event invoked");
-            }
+            HoldItem(collision.gameObject.GetComponent<DraggableItemScript>());
         }
     }
+
+    private void HoldItem(DraggableItemScript item)
+    {
+        StartCoroutine(ItemLeaveBuffer()); // disallow new item to leave the holder for a little bit
+            
+        itemLeaving = null;
+
+        if (currentHeldItem != null)
+        {
+            RemoveHeldItem(); // remove current held item to hold the new one
+        }
+            
+        currentHeldItem = item;
+        currentHeldItem.HoldingDown = false;
+        currentHeldItem.SetTarget(transform);
+            
+        onGetItem.Invoke(currentHeldItem.ItemKey);
+            
+        if (currentHeldItem.ItemKey == targetKey)
+        {
+            onCorrectKey.Invoke();
+            //print("event invoked");
+        }
+        
+        print($"{currentHeldItem.name} holding down, {currentHeldItem.target.name}");
+    }
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!itemCanExit)
+            return;
+        
+        print($"{collision.gameObject.name} left collider");
         if (!holderActive)
             return;
 
         if (collision.gameObject.CompareTag(targetTag))
         {
-            RemoveHeldItem(collision);
+            RemoveHeldItem();
         }
-        
-        itemLeaving = collision.GetComponent<DraggableItemScript>();
     }
 
-    private void RemoveHeldItem(Collider2D collision)
+    private IEnumerator ItemLeaveBuffer()
     {
-        holderOccupied = false;
+        itemCanExit = false;
+        yield return new WaitForSeconds(itemLeaveBuffer);
+        itemCanExit = true;
+    }
+
+    private void RemoveHeldItem()
+    {
         if(currentHeldItem != null)
             currentHeldItem.RemoveTarget();
         currentHeldItem = null;
