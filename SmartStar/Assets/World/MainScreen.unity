@@ -215,6 +215,10 @@ PrefabInstance:
       value: ChantEgle
       objectReference: {fileID: 0}
     - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -871,6 +875,10 @@ PrefabInstance:
     - target: {fileID: 3159592257977222542, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_Name
       value: GrandmasHouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1640,6 +1648,10 @@ PrefabInstance:
       value: StoryHouse
       objectReference: {fileID: 0}
     - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -1772,6 +1784,10 @@ PrefabInstance:
     - target: {fileID: 3159592257977222542, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_Name
       value: Snowman
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target

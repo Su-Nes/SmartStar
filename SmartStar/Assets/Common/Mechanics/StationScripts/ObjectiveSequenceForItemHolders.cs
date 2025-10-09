@@ -7,8 +7,9 @@ public class ObjectiveSequenceForItemHolders : MonoBehaviour
 {
     private List<ItemHolderScript> solvedHolders = new();
     [SerializeField] private int requiredSolvedHolderAmount = 3;
+    [SerializeField] private float invokeDelay;
 
-    [SerializeField] private UnityEvent onSolved;
+    [SerializeField] private UnityEvent onJustSolved, onTransition;
 
     public void AddSolvedHolder(ItemHolderScript holder)
     {
@@ -16,7 +17,8 @@ public class ObjectiveSequenceForItemHolders : MonoBehaviour
 
         if (IsSolved())
         {
-            onSolved.Invoke();
+            onJustSolved.Invoke();
+            Invoke(nameof(InvokeOnTransition), invokeDelay);
         }
     }
 
@@ -28,6 +30,11 @@ public class ObjectiveSequenceForItemHolders : MonoBehaviour
     public void ClearHolderList()
     {
         solvedHolders.Clear();
+    }
+
+    private void InvokeOnTransition()
+    {
+        onTransition.Invoke();
     }
 
     private bool IsSolved()
