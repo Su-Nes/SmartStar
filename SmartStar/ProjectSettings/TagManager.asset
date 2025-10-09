@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - Item_Eyes
+  - Item_Effect
+  - Item_Mouth
   layers:
   - Default
   - TransparentFX

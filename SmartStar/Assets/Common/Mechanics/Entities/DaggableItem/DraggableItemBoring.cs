@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DraggableItemBoring : DraggableItemScript
 {
@@ -10,6 +11,7 @@ public class DraggableItemBoring : DraggableItemScript
           startPosition = new GameObject().transform;
           startPosition.name = $"startPosition of {name}";
           startPosition.position = transform.position;
+          startPosition.SetParent(transform.parent);
           
           SetTarget(startPosition);
 
@@ -24,9 +26,8 @@ public class DraggableItemBoring : DraggableItemScript
           holdingDown = false;
      }
      
-     public override void StartDrag()
+     public override void StartDrag(PointerEventData eventData)
      {
-          print($"{name} started dragging");
           if (!itemGrabbable)
                return;
         

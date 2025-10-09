@@ -6,19 +6,28 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(EventTrigger))]
 public class DraggableItemScript : MonoBehaviour
 {
-    [SerializeField] protected float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld;
+    [SerializeField] protected float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld, scaleMultWhenHeld, scaleLerp;
     
     public string ItemKey = "default";
     
     public Transform target, startPosition;
+
+    private Vector3 heldScale, startScale;
     private float startGravityScale;
-    protected bool holdingDown, itemGrabbable = true;
+    protected bool holdingDown, isHeld, itemGrabbable = true;
     public bool HoldingDown
     {
         get => holdingDown;
         set => holdingDown = value;
+    }
+
+    public bool IsHeld
+    {
+        get => isHeld;
+        set => isHeld = value;
     }
 
     protected Rigidbody2D rb;
@@ -27,11 +36,16 @@ public class DraggableItemScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         startGravityScale = rb.gravityScale; 
+        
+        startScale = transform.localScale;
+        heldScale = transform.localScale * scaleMultWhenHeld;
+        
+        EventTrigger dragEvents =  GetComponent<EventTrigger>();
+        dragEvents.AddListener(EventTriggerType.PointerDown, StartDrag);
     }
 
-    public virtual void StartDrag()
+    public virtual void StartDrag(PointerEventData eventData)
     {
-        print($"{name} started dragging");
         if (!itemGrabbable)
             return;
         
@@ -62,7 +76,7 @@ public class DraggableItemScript : MonoBehaviour
         rb.gravityScale = startGravityScale;
     }
 
-    public virtual  void Update()
+    public virtual void Update()
     {
         if (target && !holdingDown)
         {
@@ -74,6 +88,28 @@ public class DraggableItemScript : MonoBehaviour
         
         if(Input.GetMouseButtonUp(0) && target == null)
             LeaveDrag();
+    }
+
+    private void FixedUpdate()
+    {
+        if (isHeld)
+        {
+            if (Vector3.Distance(transform.localScale, heldScale) > .05f)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, heldScale, scaleLerp);
+            }
+        
+            transform.localScale = heldScale;
+        }
+        else
+        {
+            if (Vector3.Distance(transform.localScale, startScale) > .05f)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, startScale, scaleLerp);
+            }
+        
+            transform.localScale = startScale;
+        }
     }
 
     public void SetItemActivity(bool state)
