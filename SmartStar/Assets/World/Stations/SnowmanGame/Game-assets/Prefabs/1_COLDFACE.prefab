@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &121561240844565261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6303332394344254850}
+  - component: {fileID: 2216177644123345344}
+  m_Layer: 5
+  m_Name: ParticleInstantiator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6303332394344254850
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121561240844565261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 857968808322443482}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -194, y: 65.571}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2216177644123345344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121561240844565261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c2f194455b9594bb5676354d1f3b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6863677994553077291, guid: ad306c5aa4c4a0144b4386cb39388983, type: 3}
+  parent: {fileID: 0}
+  instantiateOnStart: 0
 --- !u!1 &1704263489249875063
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +161,7 @@ RectTransform:
   - {fileID: 2985061334166553614}
   - {fileID: 4576338872829915189}
   - {fileID: 2057239416420539843}
+  - {fileID: 6303332394344254850}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -161,6 +213,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4220016980604680453}
         m_TargetAssemblyTypeName: ItemHolderScript, Assembly-CSharp
         m_MethodName: LockHeldItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2216177644123345344}
+        m_TargetAssemblyTypeName: InstantiateOnParent, Assembly-CSharp
+        m_MethodName: TriggerInstantiate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -403,7 +467,7 @@ PrefabInstance:
     - target: {fileID: 5584131158180730060, guid: fef619f69d639c0489e174f28ec35db6, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 7971559133696250372, guid: d1edff5a19495f745a087e4435771e71, type: 3}
+      objectReference: {fileID: 1010279052110712614, guid: bcc6766472a79d84c9c9392549372468, type: 3}
     - target: {fileID: 5803769218318181232, guid: fef619f69d639c0489e174f28ec35db6, type: 3}
       propertyPath: prefab
       value: 
