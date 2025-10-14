@@ -48,7 +48,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444855851208953006}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: f83cca3793d252049a597f2bad711104, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 62656439964f0a34cba2b8ed4fbb814b, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -62,14 +62,12 @@ VideoPlayer:
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: file://C:/Users/ksune/Documents/GitHub/SmartStar/SmartStar/Assets/World/Stations/SnowmanGame/Game-assets/Videos/placeholderVideo.webm
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
