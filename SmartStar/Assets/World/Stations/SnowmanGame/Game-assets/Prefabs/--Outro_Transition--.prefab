@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 2700559426847654853}
   - component: {fileID: 6089273732578197288}
   - component: {fileID: 5711697845867587450}
+  - component: {fileID: 6365029993513303599}
   m_Layer: 5
   m_Name: OKButton
   m_TagString: Untagged
@@ -636,3 +637,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6365029993513303599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016123206370467926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02710aaaae2e5c147b1d91004609d2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: c632c5ed5d6db3042a307ca410ed59ca, type: 3}

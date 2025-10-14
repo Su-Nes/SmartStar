@@ -13,7 +13,7 @@ public class ItemHolderScript : MonoBehaviour
     private DraggableItemScript currentHeldItem;
     private bool holderActive = true, itemCanExit;
     
-    [SerializeField] private UnityEvent<ItemHolderScript> onCorrectKey, onWrongKey, onRemoveKey;
+    [SerializeField] private UnityEvent<ItemHolderScript> onCorrectKey, onWrongKey, onRemoveCorrectKey, onRemoveWrongKey;
     [SerializeField] private UnityEvent<string> onGetItem;
     
     
@@ -67,12 +67,18 @@ public class ItemHolderScript : MonoBehaviour
     
     private void RemoveHeldItem()
     {
-        if(currentHeldItem != null)
+        if (currentHeldItem != null)
+        {
+            if (currentHeldItem.ItemKey == targetKey)
+                onRemoveCorrectKey.Invoke(this);
+            else 
+                onRemoveWrongKey.Invoke(this);
+            
             currentHeldItem.RemoveTarget();
+        }
+            
         currentHeldItem.IsHeld = false;
         currentHeldItem = null;
-        
-        onRemoveKey.Invoke(this);
     }
 
     public void SetHolderActivity(bool state)

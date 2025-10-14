@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ObjectiveSequenceForItemHolders : MonoBehaviour
 {
-    private List<ItemHolderScript> solvedHolders = new();
+    private int solvedHolders;
     [SerializeField] private int requiredSolvedHolderAmount = 3;
     [SerializeField] private float invokeDelay;
 
@@ -13,7 +13,7 @@ public class ObjectiveSequenceForItemHolders : MonoBehaviour
 
     public void AddSolvedHolder(ItemHolderScript holder)
     {
-        solvedHolders.Add(holder);
+        solvedHolders++;
 
         if (IsSolved())
         {
@@ -24,12 +24,7 @@ public class ObjectiveSequenceForItemHolders : MonoBehaviour
 
     public void RemoveSolvedHolder(ItemHolderScript holder)
     {
-        solvedHolders.Remove(holder);
-    }
-
-    public void ClearHolderList()
-    {
-        solvedHolders.Clear();
+        solvedHolders--;
     }
 
     private void InvokeOnTransition()
@@ -39,6 +34,6 @@ public class ObjectiveSequenceForItemHolders : MonoBehaviour
 
     private bool IsSolved()
     {
-        return solvedHolders.Count >= requiredSolvedHolderAmount;
+        return solvedHolders >= requiredSolvedHolderAmount;
     }
 }
