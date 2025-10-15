@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FakeVoiceRecognition : MonoBehaviour
 {
-        public static float MicLoudness;
+        /*public static float MicLoudness;
 
         private string _device;
       
@@ -87,5 +87,5 @@ public class FakeVoiceRecognition : MonoBehaviour
                 _isInitialized=false;
               
             }
-        }
+        }*/
 }

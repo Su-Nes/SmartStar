@@ -3142,6 +3142,7 @@ GameObject:
   - component: {fileID: 4234640948304988423}
   - component: {fileID: 8737648913253082651}
   - component: {fileID: 5972092095653007624}
+  - component: {fileID: 6330108823519905496}
   m_Layer: 5
   m_Name: INTERACTION_DicePanelLauncher
   m_TagString: Untagged
@@ -3196,7 +3197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ec91400cbd14f9040a63781cd3dc65a8, type: 2}
+  m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3304,6 +3305,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &6330108823519905496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219852160602406384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11bf6bfe9cf32cb4ebacd5a2d026379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 8400000, guid: ec91400cbd14f9040a63781cd3dc65a8, type: 2}
 --- !u!1001 &1045985540863990723
 PrefabInstance:
   m_ObjectHideFlags: 0
