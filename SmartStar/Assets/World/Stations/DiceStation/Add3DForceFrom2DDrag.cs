@@ -37,7 +37,8 @@ public class Add3DForceFrom2DDrag : MonoBehaviour
             StopAllCoroutines();
             dragEndPos = Input.mousePosition;
             
-            LaunchCube();
+            if((dragEndPos - dragStartPos).y > 0f)
+                LaunchCube();
             isDragging = false;
         }
     }

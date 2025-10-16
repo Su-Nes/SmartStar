@@ -32,6 +32,13 @@ public class LerpObjectToPoint : MonoBehaviour
         StartCoroutine(LerpToPosition(startPosition, Vector3.zero));
         StartCoroutine(LerpRotation(startLookRotation, Vector3.zero));
     }
+
+    public void SetPositionRotationToOrigin()
+    {
+        StopAllCoroutines();
+        transform.position = startPosition.position;
+        transform.rotation = startPosition.rotation;
+    }
     
     public void LerpToTransform(Transform target)
     {
@@ -45,7 +52,7 @@ public class LerpObjectToPoint : MonoBehaviour
         if (!gameObject.activeSelf)
             StopAllCoroutines();
         
-        while (Vector3.Distance(transform.position, target.position + offset) > 1f)
+        while (Vector3.Distance(transform.position, target.position + offset) > .05f)
         {
             transform.position = Vector3.Lerp(transform.position, target.position + offset, lerpValuePosition);
             yield return new WaitForFixedUpdate();
@@ -57,7 +64,7 @@ public class LerpObjectToPoint : MonoBehaviour
         if (!gameObject.activeSelf)
             StopAllCoroutines();
         
-        while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.position + offset - transform.position, Vector3.up)) > 5f)
+        while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.position + offset - transform.position, Vector3.up)) > .5f)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target.position - transform.position, Vector3.up), lerpValueRotation);
             yield return new WaitForFixedUpdate();
