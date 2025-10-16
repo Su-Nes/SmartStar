@@ -24,7 +24,8 @@ public class Add3DForceFrom2DDrag : MonoBehaviour
         if (!isDragging)
         {
             StartCoroutine(DragTime());
-            dragStartPos = Input.mousePosition;
+            
+            dragStartPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             
             isDragging = true;
         }
@@ -35,9 +36,9 @@ public class Add3DForceFrom2DDrag : MonoBehaviour
         if (isDragging)
         {
             StopAllCoroutines();
-            dragEndPos = Input.mousePosition;
+            dragEndPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             
-            if((dragEndPos - dragStartPos).y > 0f)
+            if((dragEndPos - dragStartPos).y > -100f)
                 LaunchCube();
             isDragging = false;
         }
@@ -47,8 +48,11 @@ public class Add3DForceFrom2DDrag : MonoBehaviour
     {
         if (launchCount > 0)
         {
-            rbToLaunch.AddForce((dragEndPos - dragStartPos) * forceMult, ForceMode.Impulse);
-            rbToLaunch.AddTorque(Random.insideUnitSphere.normalized * rotationForce, ForceMode.Impulse);
+            Vector3 mouseVector = dragEndPos - dragStartPos;
+            Vector3 perpendicular = new(mouseVector.y, 0f, -mouseVector.x);
+            print(mouseVector.magnitude);
+            rbToLaunch.AddForce(mouseVector * forceMult, ForceMode.Impulse);
+            rbToLaunch.AddTorque(perpendicular * rotationForce, ForceMode.Impulse);
             
             onLaunch.Invoke();
             

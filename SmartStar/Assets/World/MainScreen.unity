@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stations:
   - {fileID: 3919228456278686098, guid: f75434a9c49ba7e4b9b33dcfc23b3d09, type: 3}
-  - {fileID: 2618273900263986650, guid: 00fdb574c468ce547882ec4272a43099, type: 3}
+  - {fileID: 2618273900263986650, guid: a1151f8d49e7d5c478abe447364a5d5e, type: 3}
 --- !u!1 &1934461057
 GameObject:
   m_ObjectHideFlags: 0
