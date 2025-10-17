@@ -19,6 +19,7 @@ public class ObjectiveSequenceForItemHolders : MonoBehaviour
         {
             onJustSolved.Invoke();
             Invoke(nameof(InvokeOnTransition), invokeDelay);
+            EventManager.Instance.InvokeOnCorrect();
         }
     }
 

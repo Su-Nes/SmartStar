@@ -5,21 +5,37 @@ using UnityEngine;
 
 public class InstantiateOnParent : MonoBehaviour
 {
+    [SerializeField] private bool instantiateOnStart = true, useThisObjectsPosition = true;
+
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform parent;
-    [SerializeField] private bool instantiateOnStart = true;
     
     private void Start()
     {
         if (parent == null)
             parent = transform;
-        
-        if(instantiateOnStart)
-            TriggerInstantiate();
+
+        if (instantiateOnStart)
+        {
+            if (useThisObjectsPosition)
+                TriggerInstantiate(parent, transform.position);
+            else
+                TriggerInstantiate();
+        }
     }
 
     public void TriggerInstantiate()
     {
-        Instantiate(prefab, transform.position, Quaternion.identity, parent);
+        Instantiate(prefab, parent.position, Quaternion.identity, parent);
+    }
+    
+    public void TriggerInstantiate(Transform targetParent)
+    {
+        Instantiate(prefab, targetParent.position, Quaternion.identity, targetParent);
+    }
+    
+    public void TriggerInstantiate(Transform targetParent, Vector3 position)
+    {
+        Instantiate(prefab, position, Quaternion.identity, targetParent);
     }
 }

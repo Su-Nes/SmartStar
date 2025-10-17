@@ -7,6 +7,8 @@ public class SFXManager : MonoBehaviour
     public static SFXManager Instance;
 
     [SerializeField] private GameObject SFXObject;
+
+    [SerializeField] private AudioClip[] universalCorrectSounds, universalIncorrectSounds;
     
     private void Awake()
     {
@@ -17,10 +19,25 @@ public class SFXManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    public void PlayCorrectSound()
+    {
+        PlayRandomSFX(universalCorrectSounds);
+    }
+
+    public void PLayIncorrectSound()
+    {
+        PlayRandomSFX(universalIncorrectSounds);
+    }
     
     public void PlayRandomSFX(AudioClip[] audioClips, Vector3 spawnPosition, float volume)
     {
         PlaySFXClip(audioClips[Random.Range(0, audioClips.Length)], spawnPosition, volume);
+    }
+    
+    public void PlayRandomSFX(AudioClip[] audioClips)
+    {
+        PlaySFXClip(audioClips[Random.Range(0, audioClips.Length)]);
     }
     
     public void PlaySFXClip(AudioClip audioClip, Vector3 spawnPosition, float volume = .75f, float minPitch = 1f, float maxPitch = 1f)
@@ -32,7 +49,7 @@ public class SFXManager : MonoBehaviour
         audioSource.pitch = Random.Range(minPitch, maxPitch);
         audioSource.Play();
         float clipLength = audioSource.clip.length;
-        StartCoroutine(RemoveAudioSource(audioSource.gameObject, clipLength));
+        Destroy(audioSource.gameObject, clipLength);
     }
     
     public void PlaySFXClip(AudioClip audioClip, float volume = .75f, float minPitch = 1f, float maxPitch = 1f)
@@ -44,13 +61,6 @@ public class SFXManager : MonoBehaviour
         audioSource.pitch = Random.Range(minPitch, maxPitch);
         audioSource.Play();
         float clipLength = audioSource.clip.length;
-        StartCoroutine(RemoveAudioSource(audioSource.gameObject, clipLength));
-    }
-
-    private IEnumerator RemoveAudioSource(GameObject obj, float time)
-    {
-        yield return new WaitForSeconds(time);
-        if(obj != null)
-            Destroy(obj);
+        Destroy(audioSource.gameObject, clipLength);
     }
 }

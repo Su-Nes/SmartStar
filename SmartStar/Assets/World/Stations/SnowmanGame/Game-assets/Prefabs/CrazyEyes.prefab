@@ -136,6 +136,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 48906c53fc6f55b45b5fd12069d19684, type: 3}
+    - target: {fileID: 9137878833517984453, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -11.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137878833517984453, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -13.4
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3768352784776925820, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
     m_RemovedGameObjects: []

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(InstantiateOnParent))]
 public class ComparisonStationManager : MonoBehaviour
 {
     [SerializeField] private string[] objectTitles, objectDisplayNames;
@@ -13,8 +14,10 @@ public class ComparisonStationManager : MonoBehaviour
     private string currentComparison, otherComparison;
     [SerializeField] private DisplayString[] titleTexts, comparisonTexts;
     [SerializeField] private Image[] objectDisplayImages;
+    [SerializeField] private Transform yesButton, noButton;
+    [SerializeField] private float answerDelay = 2.5f;
     [SerializeField] private DisplayString countdownText;
-    [SerializeField] private UnityEvent onTrue, onFalse;
+    [SerializeField] private UnityEvent onTrue, onFalse, onAnswerComplete;
 
     [SerializeField] private int turnCount = 10;
     [SerializeField] private bool objectivesCanRepeat;
@@ -32,7 +35,6 @@ public class ComparisonStationManager : MonoBehaviour
         currentComparison = objectTitles[randomIndex];
         if(!objectivesCanRepeat && lastUsedComparison == currentComparison)
             ComparisonStart(currentComparison);
-
         
         foreach (DisplayString display in titleTexts)
         {
@@ -65,12 +67,14 @@ public class ComparisonStationManager : MonoBehaviour
     {
         if (currentComparison.ToLower().Contains(otherComparison.ToLower()))
         {
-            onTrue.Invoke();
-            ComparisonStart(currentComparison);
+            StartCoroutine(Answered(true, true));
+            
+            EventManager.Instance.InvokeOnCorrect();
         }
         else
         {
-            onFalse.Invoke();
+            StartCoroutine(Answered(false));
+            GetComponent<InstantiateOnParent>().TriggerInstantiate(yesButton);
         }
         
         EndCheck();
@@ -78,13 +82,16 @@ public class ComparisonStationManager : MonoBehaviour
 
     public void AnswerNo()
     {
-        if (currentComparison.ToLower().Contains(otherComparison.ToLower()))
+        if (!currentComparison.ToLower().Contains(otherComparison.ToLower()))
         {
-            onTrue.Invoke();
+            StartCoroutine(Answered(true));
+
+            EventManager.Instance.InvokeOnCorrect();
         }
         else
         {
-            onFalse.Invoke();
+            StartCoroutine(Answered(false));
+            GetComponent<InstantiateOnParent>().TriggerInstantiate(noButton);
         }
         
         EndCheck();
@@ -97,5 +104,26 @@ public class ComparisonStationManager : MonoBehaviour
         {
             FindObjectOfType<StationManager>().ShowOutro();
         }
+    }
+
+    private IEnumerator Answered(bool answeredHow, bool startNewComparison = false)
+    {
+        yesButton.GetComponent<Button>().interactable = false;
+        noButton.GetComponent<Button>().interactable = false;
+
+        if(answeredHow)
+            onTrue.Invoke();
+        else 
+            onFalse.Invoke();
+        
+        yield return new WaitForSecondsRealtime(answerDelay);
+        
+        yesButton.GetComponent<Button>().interactable = true;
+        noButton.GetComponent<Button>().interactable = true;
+        
+        onAnswerComplete.Invoke();
+        
+        if (startNewComparison)
+            ComparisonStart(currentComparison);
     }
 }

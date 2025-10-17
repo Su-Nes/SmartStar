@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(EventTrigger))]
 public class DraggableItemScript : MonoBehaviour
 {
     [SerializeField] protected float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld, scaleMultWhenHeld, scaleLerp;
+    [SerializeField] public UnityEvent onGetHeld, onStopBeingHeld;
     
     public string ItemKey = "default";
     

@@ -46,6 +46,11 @@ public class ItemHolderScript : MonoBehaviour
     {
         StartCoroutine(ItemLeaveBuffer()); // disallow new item to leave the holder for a little bit
         
+        if (item.ItemKey == targetKey)
+            onCorrectKey.Invoke(this);
+        else
+            onWrongKey.Invoke(this);
+        
         if (currentHeldItem != null)
         {
             RemoveHeldItem(); // remove current held item to hold the new one
@@ -55,14 +60,10 @@ public class ItemHolderScript : MonoBehaviour
         currentHeldItem.HoldingDown = false;
         currentHeldItem.IsHeld = true;
         currentHeldItem.SetTarget(transform);
+        currentHeldItem.onGetHeld.Invoke();
         
         // events    
         onGetItem.Invoke(currentHeldItem.ItemKey);
-            
-        if (currentHeldItem.ItemKey == targetKey)
-            onCorrectKey.Invoke(this);
-        else
-            onWrongKey.Invoke(this);
     }
     
     private void RemoveHeldItem()
@@ -75,6 +76,7 @@ public class ItemHolderScript : MonoBehaviour
                 onRemoveWrongKey.Invoke(this);
             
             currentHeldItem.RemoveTarget();
+            currentHeldItem.onStopBeingHeld.Invoke();
         }
             
         currentHeldItem.IsHeld = false;

@@ -22,7 +22,7 @@ public class ReturnDiceThrowResult : MonoBehaviour
                 result = side.transform;
             }
         }
-        print(result.name);
+
         onResultTF.Invoke(result);
         onResultString.Invoke(result.name);
     }
