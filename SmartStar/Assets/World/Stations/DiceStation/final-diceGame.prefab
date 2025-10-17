@@ -4430,8 +4430,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbToLaunch: {fileID: 5326886942970806938}
   dragTime: 1
-  forceMult: 15
+  forceMult: 25
   rotationForce: 15
+  minimalLaunchDrag: 0.1
   launchCount: 1
   onLaunch:
     m_PersistentCalls:

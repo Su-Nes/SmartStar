@@ -8,9 +8,9 @@ public class MovingCloudScript : MonoBehaviour
     [SerializeField] private float leftXLimit, rightXLimit, spawnX;
     [SerializeField] private Vector3 moveSpeed;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.Translate(moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(moveSpeed * Time.fixedDeltaTime, Space.World);
         
         if (transform.position.x < leftXLimit || transform.position.x > rightXLimit)
         {
