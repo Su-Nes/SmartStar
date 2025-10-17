@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ComparisonStationManager : MonoBehaviour
 {
-    [SerializeField] private string[] objectNames;
+    [SerializeField] private string[] objectTitles, objectDisplayNames;
+    [SerializeField] private Sprite[] objectSprites;
     private string currentComparison, otherComparison;
-    [SerializeField] private DisplayString comparisonText, countdownText;
+    [SerializeField] private DisplayString[] titleTexts, comparisonTexts;
+    [SerializeField] private Image[] objectDisplayImages;
+    [SerializeField] private DisplayString countdownText;
     [SerializeField] private UnityEvent onTrue, onFalse;
 
     [SerializeField] private int turnCount = 10;
-    [SerializeField] private bool canRepeat;
+    [SerializeField] private bool objectivesCanRepeat;
     
     
     private void Start()
@@ -23,11 +28,26 @@ public class ComparisonStationManager : MonoBehaviour
 
     private void ComparisonStart(string lastUsedComparison = "")
     {
-        currentComparison = objectNames[Random.Range(0, objectNames.Length)];
-        if(!canRepeat && lastUsedComparison == currentComparison)
-            ComparisonStart(lastUsedComparison);
-            
-        comparisonText.ShowStringTMP(currentComparison);
+        int randomIndex = Random.Range(0, objectTitles.Length);
+        currentComparison = objectTitles[randomIndex];
+        if(!objectivesCanRepeat && lastUsedComparison == currentComparison)
+            ComparisonStart(currentComparison);
+
+        
+        foreach (DisplayString display in titleTexts)
+        {
+            display.ShowStringTMP(currentComparison);
+        }
+
+        foreach (DisplayString display in comparisonTexts)
+        {
+            display.ShowStringTMP(objectDisplayNames[randomIndex]);
+        }
+
+        foreach (Image img in objectDisplayImages)
+        {
+            img.sprite = objectSprites[randomIndex];
+        }
     }
 
     public void AssignComparison(string comparison)
@@ -43,7 +63,7 @@ public class ComparisonStationManager : MonoBehaviour
 
     public void AnswerYes()
     {
-        if (currentComparison == otherComparison)
+        if (currentComparison.ToLower().Contains(otherComparison.ToLower()))
         {
             onTrue.Invoke();
             ComparisonStart(currentComparison);
@@ -58,7 +78,7 @@ public class ComparisonStationManager : MonoBehaviour
 
     public void AnswerNo()
     {
-        if (currentComparison != otherComparison)
+        if (currentComparison.ToLower().Contains(otherComparison.ToLower()))
         {
             onTrue.Invoke();
         }

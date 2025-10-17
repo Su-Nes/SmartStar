@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Resources/SpeechRecogniser/KKSpeechRecognizer/Example/ExampleScene.unity
-    guid: 1a1e869bff86843f48395c9dc3c133e8
+    path: Assets/World/MainScreen.unity
+    guid: a8631ce88a33f5247b7af7d01c1b069b
   m_configObjects: {}

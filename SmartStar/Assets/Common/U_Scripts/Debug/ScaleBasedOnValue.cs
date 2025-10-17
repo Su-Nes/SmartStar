@@ -6,6 +6,6 @@ public class ScaleBasedOnValue : MonoBehaviour
 {
     private void Update()
     {
-        transform.localScale = Vector3.one * FakeVoiceRecognition.MicLoudness;
+        //transform.localScale = Vector3.one * FakeVoiceRecognition.MicLoudness;
     }
 }

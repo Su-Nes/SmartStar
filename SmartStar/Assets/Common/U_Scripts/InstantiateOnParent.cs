@@ -20,6 +20,6 @@ public class InstantiateOnParent : MonoBehaviour
 
     public void TriggerInstantiate()
     {
-        Instantiate(prefab, parent.position, Quaternion.identity, parent);
+        Instantiate(prefab, transform.position, Quaternion.identity, parent);
     }
 }

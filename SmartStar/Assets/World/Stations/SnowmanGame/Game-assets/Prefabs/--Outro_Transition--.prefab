@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1334412033581411898}
   - component: {fileID: 7074902941708710075}
+  - component: {fileID: 4241627472094110632}
   m_Layer: 5
   m_Name: --Outro_Transition--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1334412033581411898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30,6 +31,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1343376932264525605}
+  - {fileID: 4195099712901722266}
   - {fileID: 1233605076291946964}
   - {fileID: 4969640411620766342}
   - {fileID: 7310157683212806777}
@@ -52,19 +54,19 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: f2e91ecc159e4754398a686df2e79261, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: file://C:/Users/ksune/Documents/GitHub/SmartStar/SmartStar/Assets/World/Stations/SnowmanGame/Game-assets/Videos/placeholderVideo.webm
+  m_Url: 
   m_EnabledAudioTracks: 
   m_DirectAudioMutes: 
   m_ControlledAudioTrackCount: 0
@@ -74,6 +76,24 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &4241627472094110632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444855851208953006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626761c975a37dc45b9b99319a4bbab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  URL: https://su-nes.github.io/VideoHosting/realPlaceholder.mp4
+  onVideoPrepared:
+    m_PersistentCalls:
+      m_Calls: []
+  targetTexture: {fileID: 8400000, guid: f2e91ecc159e4754398a686df2e79261, type: 2}
+  rawImage: {fileID: 6256433121329637040}
 --- !u!1 &2501790333102791772
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: f2e91ecc159e4754398a686df2e79261, type: 2}
+  m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -650,3 +670,109 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: c632c5ed5d6db3042a307ca410ed59ca, type: 3}
+--- !u!1001 &8304988543606367472
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1334412033581411898}
+    m_Modifications:
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 180.8006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 180.8006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083853722954903827, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_Name
+      value: LoadingCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083853722954903827, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+--- !u!224 &4195099712901722266 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5293633789556233322, guid: a70178031241b4a44b675cf6ae8fd040, type: 3}
+  m_PrefabInstance: {fileID: 8304988543606367472}
+  m_PrefabAsset: {fileID: 0}

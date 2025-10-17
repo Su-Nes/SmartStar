@@ -1037,12 +1037,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectNames:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
+  - mittens
+  - snowflake
+  - snowman
+  - kettle
+  - raindeer
+  - snowman
   comparisonText: {fileID: 2853285982016316042}
   countdownText: {fileID: 1550949224707508771}
   onTrue:
@@ -1086,7 +1086,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 886093618489420854}
         m_TargetAssemblyTypeName: LerpObjectToPoint, Assembly-CSharp
-        m_MethodName: LerpToOrigin
+        m_MethodName: SetPositionRotationToOrigin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1149,7 +1149,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 886093618489420854}
         m_TargetAssemblyTypeName: LerpObjectToPoint, Assembly-CSharp
-        m_MethodName: LerpToOrigin
+        m_MethodName: SetPositionRotationToOrigin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1185,6 +1185,7 @@ GameObject:
   - component: {fileID: 7375757322335986591}
   - component: {fileID: 1587129057602502113}
   - component: {fileID: 886093618489420854}
+  - component: {fileID: 7107168344777628656}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1280,7 +1281,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
+  m_VolumeFrameworkUpdateModeOption: 1
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -1318,6 +1319,19 @@ MonoBehaviour:
   lerpValueRotation: 0.2
   offsetPosition: {x: 0, y: 2, z: -0.25}
   offsetLookPosition: {x: 0, y: -2, z: 0}
+--- !u!114 &7107168344777628656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821351709204809631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd40c82b171e9a468f9df68563af95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderTexture: {fileID: 8400000, guid: ec91400cbd14f9040a63781cd3dc65a8, type: 2}
 --- !u!1 &2879798235827120854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,6 +3156,7 @@ GameObject:
   - component: {fileID: 4234640948304988423}
   - component: {fileID: 8737648913253082651}
   - component: {fileID: 5972092095653007624}
+  - component: {fileID: 6330108823519905496}
   m_Layer: 5
   m_Name: INTERACTION_DicePanelLauncher
   m_TagString: Untagged
@@ -3196,7 +3211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ec91400cbd14f9040a63781cd3dc65a8, type: 2}
+  m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3304,6 +3319,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &6330108823519905496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219852160602406384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11bf6bfe9cf32cb4ebacd5a2d026379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 8400000, guid: ec91400cbd14f9040a63781cd3dc65a8, type: 2}
 --- !u!1001 &1045985540863990723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3777,7 +3805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2843643911163505632, guid: 67323b340497ed54caff884c6613ddda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 2843643911163505632, guid: 67323b340497ed54caff884c6613ddda, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3813,7 +3841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2870617224578014597, guid: 67323b340497ed54caff884c6613ddda, type: 3}
       propertyPath: m_Name
-      value: 3
+      value: snowman
       objectReference: {fileID: 0}
     - target: {fileID: 2870617224578014597, guid: 67323b340497ed54caff884c6613ddda, type: 3}
       propertyPath: m_IsActive
@@ -3924,8 +3952,16 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8595204109459241720, guid: 67323b340497ed54caff884c6613ddda, type: 3}
+      propertyPath: m_Name
+      value: kettle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595204109459241720, guid: 67323b340497ed54caff884c6613ddda, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941704586289991026, guid: 67323b340497ed54caff884c6613ddda, type: 3}
+      propertyPath: m_Name
+      value: mittens
       objectReference: {fileID: 0}
     - target: {fileID: 8941704586289991026, guid: 67323b340497ed54caff884c6613ddda, type: 3}
       propertyPath: m_IsActive

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class EventOnMicInput : MonoBehaviour
 {
-    [SerializeField] private float minimumTriggerVolume = .1f;
+    /*[SerializeField] private float minimumTriggerVolume = .1f;
     [SerializeField] private float waitAfterTrigger = 1f;
     private float t;
     
@@ -20,5 +20,5 @@ public class EventOnMicInput : MonoBehaviour
             volumeEvent.Invoke();
             t = 0f;
         }
-    }
+    }*/
 }
