@@ -9,12 +9,19 @@ public class EventManager : MonoBehaviour
     public static event CorrectEvent onCorrect;
     public delegate void IncorrectEvent();
     public static event IncorrectEvent onIncorrect;
+    
+    public delegate void AudioStart();
+    public static event AudioStart onAudioStart;
+    public delegate void AudioStop();
+    public static event AudioStop onAudioStop;
 
     public enum EventTypes
     {
         none,
         onCorrect,
-        onIncorrect
+        onIncorrect,
+        onAudioStart,
+        onAudioStop
     }
     
     public static EventManager Instance;
@@ -36,5 +43,15 @@ public class EventManager : MonoBehaviour
     public void InvokeOnIncorrect()
     {
         onIncorrect?.Invoke();
+    }
+
+    public void InvokeOnAudioStart()
+    {
+        onAudioStart?.Invoke();
+    }
+
+    public void InvokeOnAudioStop()
+    {
+        onAudioStop?.Invoke();
     }
 }

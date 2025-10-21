@@ -9,6 +9,8 @@ public class SFXManager : MonoBehaviour
     [SerializeField] private GameObject SFXObject;
 
     [SerializeField] private AudioClip[] universalCorrectSounds, universalIncorrectSounds;
+
+    private bool eventInvoked;
     
     private void Awake()
     {
@@ -25,7 +27,7 @@ public class SFXManager : MonoBehaviour
         PlayRandomSFX(universalCorrectSounds);
     }
 
-    public void PLayIncorrectSound()
+    public void PlayIncorrectSound()
     {
         PlayRandomSFX(universalIncorrectSounds);
     }
@@ -42,8 +44,10 @@ public class SFXManager : MonoBehaviour
     
     public void PlaySFXClip(AudioClip audioClip, Vector3 spawnPosition, float volume = .75f, float minPitch = 1f, float maxPitch = 1f)
     {
+        EventManager.Instance.InvokeOnAudioStart();
+        
         AudioSource audioSource =
-            Instantiate(SFXObject.GetComponent<AudioSource>(), spawnPosition, Quaternion.identity);
+            Instantiate(SFXObject.GetComponent<AudioSource>(), spawnPosition, Quaternion.identity, transform);
         audioSource.clip = audioClip;
         audioSource.volume = volume;
         audioSource.pitch = Random.Range(minPitch, maxPitch);
@@ -51,16 +55,34 @@ public class SFXManager : MonoBehaviour
         float clipLength = audioSource.clip.length;
         Destroy(audioSource.gameObject, clipLength);
     }
+
+    private void Update()
+    {
+        if (transform.childCount <= 0)
+        {
+            eventInvoked = true;
+
+            EventManager.Instance.InvokeOnAudioStop();
+        }
+        else
+        {
+            EventManager.Instance.InvokeOnAudioStart();
+        }
+    }
     
     public void PlaySFXClip(AudioClip audioClip, float volume = .75f, float minPitch = 1f, float maxPitch = 1f)
     {
+        EventManager.Instance.InvokeOnAudioStart();
+        
         AudioSource audioSource =
-            Instantiate(SFXObject.GetComponent<AudioSource>(), Vector3.zero, Quaternion.identity);
+            Instantiate(SFXObject.GetComponent<AudioSource>(), Vector3.zero, Quaternion.identity, transform);
         audioSource.clip = audioClip;
         audioSource.volume = volume;
         audioSource.pitch = Random.Range(minPitch, maxPitch);
         audioSource.Play();
         float clipLength = audioSource.clip.length;
         Destroy(audioSource.gameObject, clipLength);
+        
+        EventManager.Instance.Invoke(nameof(EventManager.InvokeOnAudioStop), clipLength);
     }
 }

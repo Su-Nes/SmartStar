@@ -16,6 +16,6 @@ public class PlaySFX : MonoBehaviour
 
     public void PlaySFXForIncorrect()
     {
-        SFXManager.Instance.PLayIncorrectSound();
+        SFXManager.Instance.PlayIncorrectSound();
     }
 }

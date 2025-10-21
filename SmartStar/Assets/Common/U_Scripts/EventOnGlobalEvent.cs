@@ -1,0 +1,60 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class EventOnGlobalEvent : MonoBehaviour
+{
+    [SerializeField] private EventManager.EventTypes eventType;
+    [SerializeField] private UnityEvent onEvent;
+    
+    private void OnEnable()
+    {
+        switch (eventType)
+        {
+            case EventManager.EventTypes.onCorrect:
+                EventManager.onCorrect += InvokeEvent;
+                break;
+            
+            case EventManager.EventTypes.onIncorrect:
+                EventManager.onIncorrect += InvokeEvent;
+                break;
+            
+            case EventManager.EventTypes.onAudioStart:
+                EventManager.onAudioStart += InvokeEvent;
+                break;
+            
+            case EventManager.EventTypes.onAudioStop:
+                EventManager.onAudioStop += InvokeEvent;
+                break;
+        }
+    }
+
+    private void OnDisable()
+    {
+        switch (eventType)
+        {
+            case EventManager.EventTypes.onCorrect:
+                EventManager.onCorrect -= InvokeEvent;
+                break;
+            
+            case EventManager.EventTypes.onIncorrect:
+                EventManager.onIncorrect -= InvokeEvent;
+                break;
+            
+            case EventManager.EventTypes.onAudioStart:
+                EventManager.onAudioStart -= InvokeEvent;
+                break;
+            
+            case EventManager.EventTypes.onAudioStop:
+                EventManager.onAudioStop -= InvokeEvent;
+                break;
+        }
+    }
+
+    private void InvokeEvent()
+    {
+        onEvent.Invoke();
+    }
+}
