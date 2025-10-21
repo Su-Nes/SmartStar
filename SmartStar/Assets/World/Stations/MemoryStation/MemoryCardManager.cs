@@ -80,7 +80,7 @@ public class MemoryCardManager : MonoBehaviour
         {
             foreach (MemoryCardScript card in chosenCards)
                 unsolvedCards.Remove(card.GetComponent<Button>());
-            print("correct cards");
+            
             SFXManager.Instance.PlayCorrectSound();
             EventManager.Instance.InvokeOnCorrect();
         }

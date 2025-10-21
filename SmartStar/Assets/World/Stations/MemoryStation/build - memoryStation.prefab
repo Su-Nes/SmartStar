@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shuffleCount: 15
-  solveDelay: 1.5
+  solveDelay: 1.8
   cards:
   - {fileID: 4357595131053031252, guid: 98bf97f50723df540a3bdd042cda5fe6, type: 3}
   - {fileID: 2266906038289211175, guid: f21a6fa476494a8469de995677deabda, type: 3}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shuffleCount: 15
-  solveDelay: 1.5
+  solveDelay: 1.8
   cards:
   - {fileID: 1861252996433510900, guid: 023d408e31e7ad34eb152acf61a905f2, type: 3}
   - {fileID: 6227800990157346733, guid: 36a47c3e894167348b0402804cc42399, type: 3}

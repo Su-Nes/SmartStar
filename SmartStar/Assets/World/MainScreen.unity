@@ -205,6 +205,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1409160863}
     m_Modifications:
+    - target: {fileID: 1890637592501021269, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 979a576d348c3ee49ae127862f6bd311, type: 3}
     - target: {fileID: 2547065126054619262, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6
@@ -960,6 +964,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bb6f0013edddfb140a59d145a9fad21b, type: 3}
   - {fileID: 8300000, guid: 072b98a28c29e62428f2eb3bf136e1c4, type: 3}
   - {fileID: 8300000, guid: a3df40f7202e7dd4b89730627a7494d8, type: 3}
+  SFXIsPlaying: 0
 --- !u!1 &499476020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1360,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1409160863}
     m_Modifications:
+    - target: {fileID: 1890637592501021269, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 979a576d348c3ee49ae127862f6bd311, type: 3}
     - target: {fileID: 2547065126054619262, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.16
@@ -2060,6 +2069,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1409160863}
     m_Modifications:
+    - target: {fileID: 1890637592501021269, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 979a576d348c3ee49ae127862f6bd311, type: 3}
     - target: {fileID: 2547065126054619262, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.65
@@ -3074,6 +3087,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1409160863}
     m_Modifications:
+    - target: {fileID: 1890637592501021269, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 979a576d348c3ee49ae127862f6bd311, type: 3}
     - target: {fileID: 2547065126054619262, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.65
@@ -3435,6 +3452,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1409160863}
     m_Modifications:
+    - target: {fileID: 1890637592501021269, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 979a576d348c3ee49ae127862f6bd311, type: 3}
     - target: {fileID: 2547065126054619262, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1

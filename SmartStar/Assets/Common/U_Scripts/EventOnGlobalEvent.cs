@@ -28,6 +28,16 @@ public class EventOnGlobalEvent : MonoBehaviour
             case EventManager.EventTypes.onAudioStop:
                 EventManager.onAudioStop += InvokeEvent;
                 break;
+            
+            case EventManager.EventTypes.none:
+                break;
+            
+            case EventManager.EventTypes.onEnable:
+                InvokeEvent();
+                break;
+            
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -49,6 +59,13 @@ public class EventOnGlobalEvent : MonoBehaviour
             
             case EventManager.EventTypes.onAudioStop:
                 EventManager.onAudioStop -= InvokeEvent;
+                break;
+            
+            case EventManager.EventTypes.none:
+                break;
+            
+            case EventManager.EventTypes.onDisable:
+                InvokeEvent();
                 break;
         }
     }

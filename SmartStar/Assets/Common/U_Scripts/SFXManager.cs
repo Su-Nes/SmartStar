@@ -10,7 +10,7 @@ public class SFXManager : MonoBehaviour
 
     [SerializeField] private AudioClip[] universalCorrectSounds, universalIncorrectSounds;
 
-    private bool eventInvoked;
+    private bool audioReceiveEventInvoked, audioStoppedEventInvoked;
     
     private void Awake()
     {
@@ -54,20 +54,8 @@ public class SFXManager : MonoBehaviour
         audioSource.Play();
         float clipLength = audioSource.clip.length;
         Destroy(audioSource.gameObject, clipLength);
-    }
-
-    private void Update()
-    {
-        if (transform.childCount <= 0)
-        {
-            eventInvoked = true;
-
-            EventManager.Instance.InvokeOnAudioStop();
-        }
-        else
-        {
-            EventManager.Instance.InvokeOnAudioStart();
-        }
+        
+        EventManager.Instance.Invoke(nameof(EventManager.InvokeOnAudioStop), clipLength);
     }
     
     public void PlaySFXClip(AudioClip audioClip, float volume = .75f, float minPitch = 1f, float maxPitch = 1f)
