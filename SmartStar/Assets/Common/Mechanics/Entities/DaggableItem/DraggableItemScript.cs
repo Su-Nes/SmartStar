@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class DraggableItemScript : MonoBehaviour
 {
     [SerializeField] protected float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld, scaleMultWhenHeld, scaleLerp;
-    [SerializeField] public UnityEvent onGetHeld, onStopBeingHeld;
+    [SerializeField] public UnityEvent onStartDrag, onGetHeld, onStopBeingHeld;
     
     public string ItemKey = "default";
     
@@ -52,6 +52,8 @@ public class DraggableItemScript : MonoBehaviour
         
         holdingDown = true;
         RemoveTarget();
+        
+        onStartDrag.Invoke();
         
         rb.drag = dragWhenDragging;
     }

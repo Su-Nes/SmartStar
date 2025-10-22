@@ -6,11 +6,13 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(PlayCombinedVoiceLine))]
 [RequireComponent(typeof(InstantiateOnParent))]
 public class ComparisonStationManager : MonoBehaviour
 {
     [SerializeField] private string[] objectTitles, objectDisplayNames;
     [SerializeField] private Sprite[] objectSprites;
+    [SerializeField] private AudioClip[] objectSounds;
     private string currentComparison, otherComparison;
     [SerializeField] private DisplayString[] titleTexts, comparisonTexts;
     [SerializeField] private Image[] objectDisplayImages;
@@ -33,8 +35,11 @@ public class ComparisonStationManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, objectTitles.Length);
         currentComparison = objectTitles[randomIndex];
-        if(!objectivesCanRepeat && lastUsedComparison == currentComparison)
+        if (!objectivesCanRepeat && lastUsedComparison == currentComparison)
+        {
             ComparisonStart(currentComparison);
+            return;
+        }
         
         foreach (DisplayString display in titleTexts)
         {
@@ -50,6 +55,8 @@ public class ComparisonStationManager : MonoBehaviour
         {
             img.sprite = objectSprites[randomIndex];
         }
+        
+        StartCoroutine(GetComponent<PlayCombinedVoiceLine>().PlayVoiceWithClip(objectSounds[randomIndex])); 
     }
 
     public void AssignComparison(string comparison)

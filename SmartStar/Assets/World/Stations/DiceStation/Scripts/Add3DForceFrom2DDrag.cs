@@ -45,7 +45,7 @@ public class Add3DForceFrom2DDrag : MonoBehaviour
     }
 
     private void LaunchCube()
-    {print($"start drag: {dragStartPos}, end drag: {dragEndPos}, magnitude: {(dragEndPos - dragStartPos).magnitude}");
+    {
         if (launchCount > 0)
         {
             Vector3 mouseVector = dragEndPos - dragStartPos;

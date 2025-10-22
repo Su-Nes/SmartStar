@@ -35,6 +35,8 @@ public class DraggableItemBoring : DraggableItemScript
           
           if(target != startPosition)
                SetTarget(startPosition);
+          
+          onStartDrag.Invoke();
         
           rb.drag = dragWhenDragging;
      }

@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: scaleMultWhenHeld
       value: 2.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3974370341438273536, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
+      propertyPath: onStartDrag.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 5d345b2fa7894f9498d9a2ac9fa3bd95, type: 3}
     - target: {fileID: 4719310439154789482, guid: 62b719f111e617a4d8f417f66cf58653, type: 3}
       propertyPath: m_GravityScale
       value: 0

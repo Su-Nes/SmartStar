@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4719310439154789482}
   - component: {fileID: 6923591996439681698}
   - component: {fileID: 3974370341438273536}
+  - component: {fileID: 4858159329488721267}
   m_Layer: 5
   m_Name: DraggableItem
   m_TagString: Item
@@ -172,6 +173,39 @@ MonoBehaviour:
   dragWhenHeld: 25
   scaleMultWhenHeld: 2
   scaleLerp: 0.01
+  onStartDrag:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4858159329488721267}
+        m_TargetAssemblyTypeName: PlaySFX, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 1d643692385cc814a8f09f5f4f59b9d5, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onGetHeld:
+    m_PersistentCalls:
+      m_Calls: []
+  onStopBeingHeld:
+    m_PersistentCalls:
+      m_Calls: []
   ItemKey: default
   target: {fileID: 0}
   startPosition: {fileID: 0}
+--- !u!114 &4858159329488721267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586955447963407891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30987c4faf68e4c42979ea8592e9256c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
