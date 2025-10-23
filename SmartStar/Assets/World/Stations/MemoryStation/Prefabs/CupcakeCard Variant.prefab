@@ -17,6 +17,10 @@ PrefabInstance:
       value: mittens
       objectReference: {fileID: 0}
     - target: {fileID: 3747238783331566101, guid: 8abb4fab05a9e0849a65e4ef4c4c22c0, type: 3}
+      propertyPath: category
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747238783331566101, guid: 8abb4fab05a9e0849a65e4ef4c4c22c0, type: 3}
       propertyPath: audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 9d0f9ebd7ae074a4b9c1867fb25ce65f, type: 3}

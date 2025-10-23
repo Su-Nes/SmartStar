@@ -12,7 +12,7 @@ public class ComparisonStationManager : MonoBehaviour
 {
     [SerializeField] private string[] objectTitles, objectDisplayNames;
     [SerializeField] private Sprite[] objectSprites;
-    [SerializeField] private AudioClip[] objectSounds;
+    [SerializeField] private AudioClip[] objectVoiceFirstHalf, objectSounds;
     private string currentComparison, otherComparison;
     [SerializeField] private DisplayString[] titleTexts, comparisonTexts;
     [SerializeField] private Image[] objectDisplayImages;
@@ -55,8 +55,9 @@ public class ComparisonStationManager : MonoBehaviour
         {
             img.sprite = objectSprites[randomIndex];
         }
-        
-        StartCoroutine(GetComponent<PlayCombinedVoiceLine>().PlayVoiceWithClip(objectSounds[randomIndex])); 
+
+        AudioClip[] arr = { objectVoiceFirstHalf[randomIndex], objectSounds[randomIndex] };
+        StartCoroutine(GetComponent<PlayCombinedVoiceLine>().PlayVoiceLines(arr)); 
     }
 
     public void AssignComparison(string comparison)

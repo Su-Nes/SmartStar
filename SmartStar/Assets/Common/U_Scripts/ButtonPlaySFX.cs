@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class ButtonPlaySFX : MonoBehaviour
 {
+    [SerializeField] private SFXManager.VoiceCategory category = SFXManager.VoiceCategory.SFX;
     [SerializeField] private AudioClip audioClip;
     
     private void Awake()
@@ -16,6 +17,6 @@ public class ButtonPlaySFX : MonoBehaviour
     
     private void PlaySound()
     {
-        SFXManager.Instance.PlaySFXClip(audioClip);
+        SFXManager.Instance.PlaySFXClip(audioClip, category);
     }
 }

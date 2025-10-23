@@ -49,9 +49,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eecd9f28701bdc4ca3d3b135a82f66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapHeldItemPos: 0
+  rejectWrongKeys: 0
+  reparentHeldObject: 0
   targetTag: Item
   targetKey: default
+  itemLeaveBuffer: 0.5
   onCorrectKey:
+    m_PersistentCalls:
+      m_Calls: []
+  onWrongKey:
+    m_PersistentCalls:
+      m_Calls: []
+  onRemoveCorrectKey:
+    m_PersistentCalls:
+      m_Calls: []
+  onRemoveWrongKey:
     m_PersistentCalls:
       m_Calls: []
   onGetItem:

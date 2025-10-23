@@ -1,17 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayCombinedVoiceLine : MonoBehaviour
 {
-    [SerializeField] private AudioClip voiceLineFirstHalf;
-    
-    public IEnumerator PlayVoiceWithClip(AudioClip clip)
+    [SerializeField] private SFXManager.VoiceCategory category = SFXManager.VoiceCategory.SFX;
+    [SerializeField] private AudioClip[] onEnableLines;
+
+    private void OnEnable()
     {
-        SFXManager.Instance.PlaySFXClip(voiceLineFirstHalf);
-        
-        yield return new WaitForSeconds(clip.length);
-        
-        SFXManager.Instance.PlaySFXClip(clip);
+        if(onEnableLines.Length > 0)
+        {
+            StartCoroutine(PlayVoiceLines(onEnableLines));
+        }
+    }
+
+    public IEnumerator PlayVoiceLines(AudioClip[] clipArray)
+    {
+        foreach (AudioClip clip in clipArray)
+        {
+            SFXManager.Instance.PlaySFXClip(clip, category);
+            yield return new WaitForSeconds(clip.length - .2f);
+        }
     }
 }

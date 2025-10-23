@@ -8,6 +8,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider2D))]
 public class ItemHolderScript : MonoBehaviour
 {
+    [SerializeField] private bool snapHeldItemPos, rejectWrongKeys, reparentHeldObject;
+    private Transform heldItemParent;
     [SerializeField] private string targetTag = "Item", targetKey = "default";
     [SerializeField] private float itemLeaveBuffer = .5f;
     private DraggableItemScript currentHeldItem;
@@ -49,7 +51,14 @@ public class ItemHolderScript : MonoBehaviour
         if (item.ItemKey == targetKey)
             onCorrectKey.Invoke(this);
         else
+        {
             onWrongKey.Invoke(this);
+            if (rejectWrongKeys)
+            {
+                item.LeaveDrag();
+                return;
+            }
+        }
         
         if (currentHeldItem != null)
         {
@@ -61,6 +70,12 @@ public class ItemHolderScript : MonoBehaviour
         currentHeldItem.IsHeld = true;
         currentHeldItem.SetTarget(transform);
         currentHeldItem.onGetHeld.Invoke();
+
+        if (reparentHeldObject)
+        {
+            heldItemParent = currentHeldItem.transform.parent;
+            currentHeldItem.transform.SetParent(transform);
+        }
         
         // events    
         onGetItem.Invoke(currentHeldItem.ItemKey);
@@ -78,9 +93,20 @@ public class ItemHolderScript : MonoBehaviour
             currentHeldItem.RemoveTarget();
             currentHeldItem.onStopBeingHeld.Invoke();
         }
+        
+        if(reparentHeldObject)
+            currentHeldItem.transform.SetParent(heldItemParent);
             
         currentHeldItem.IsHeld = false;
         currentHeldItem = null;
+    }
+
+    private void Update()
+    {
+        if (snapHeldItemPos && currentHeldItem != null)
+        {
+            currentHeldItem.GetComponent<Rigidbody2D>().position = transform.position;
+        }
     }
 
     public void SetHolderActivity(bool state)

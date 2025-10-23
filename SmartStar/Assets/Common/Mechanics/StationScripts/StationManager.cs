@@ -9,7 +9,7 @@ public class StationManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         introScreen.SetActive(true);
         mainScreen.SetActive(false);
         outroScreen.SetActive(false);
@@ -25,7 +25,7 @@ public class StationManager : MonoBehaviour
 
     public void ShowOutro()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         outroScreen.SetActive(true);
     }
 

@@ -9,10 +9,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(EventTrigger))]
 public class DraggableItemScript : MonoBehaviour
 {
+    public string ItemKey = "default";
     [SerializeField] protected float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld, scaleMultWhenHeld, scaleLerp;
     [SerializeField] public UnityEvent onStartDrag, onGetHeld, onStopBeingHeld;
-    
-    public string ItemKey = "default";
     
     public Transform target, startPosition;
 
@@ -49,7 +48,7 @@ public class DraggableItemScript : MonoBehaviour
     {
         if (!itemGrabbable)
             return;
-        
+        print(itemGrabbable);
         holdingDown = true;
         RemoveTarget();
         
@@ -81,12 +80,14 @@ public class DraggableItemScript : MonoBehaviour
 
     public virtual void Update()
     {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
         if (target && !holdingDown)
         {
             rb.AddForce((target.position - transform.position) * (forceToMouse * Time.deltaTime * Vector2.Distance(transform.position, target.position)));
         }else if (holdingDown)
         { 
-            rb.AddForce((Input.mousePosition - transform.position) * (forceToMouse * Time.deltaTime * Vector2.Distance(transform.position, Input.mousePosition)));
+            rb.AddForce((Input.mousePosition - transform.position) * (forceToMouse * Time.deltaTime * Vector2.Distance(transform.position, mousePos)));
         }
         
         if(Input.GetMouseButtonUp(0) && target == null)

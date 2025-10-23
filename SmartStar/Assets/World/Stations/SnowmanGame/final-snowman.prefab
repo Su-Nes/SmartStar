@@ -105,7 +105,7 @@ RectTransform:
   m_Children:
   - {fileID: 6672134755902767755}
   - {fileID: 428755044894331135}
-  m_Father: {fileID: 6050500809803520449}
+  m_Father: {fileID: 3798908426963375226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -890,8 +890,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7624745771957151315}
-  - {fileID: 117415494743086829}
   - {fileID: 3829273884408954887}
   - {fileID: 3569916038008027988}
   m_Father: {fileID: 1347818996154579141}
@@ -972,12 +970,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7017699216797866905}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6050500809803520449}
+  m_Father: {fileID: 3798908426963375226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2492,6 +2490,12 @@ PrefabInstance:
     - {fileID: 3084567772460114169, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
     - {fileID: 4350706642851806060, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 508842321063681396, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 7624745771957151315}
+    - targetCorrespondingSourceObject: {fileID: 508842321063681396, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 117415494743086829}
     - targetCorrespondingSourceObject: {fileID: 2378956475824173515, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
       insertIndex: 1
       addedObject: {fileID: 6050500809803520449}
@@ -2500,6 +2504,11 @@ PrefabInstance:
 --- !u!224 &1347818996154579141 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2378956475824173515, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
+  m_PrefabInstance: {fileID: 3726634628019931406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3798908426963375226 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 508842321063681396, guid: 98ce60be9762b8340bf91ef5d335e71f, type: 3}
   m_PrefabInstance: {fileID: 3726634628019931406}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7982168924177920554 stripped
