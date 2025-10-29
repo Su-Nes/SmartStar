@@ -11,7 +11,7 @@ public class DraggableItemScript : MonoBehaviour
 {
     public string ItemKey = "default";
     [SerializeField] protected float forceToMouse, dragWhenDragging, dragOutOfDrag, dragWhenHeld, scaleMultWhenHeld, scaleLerp;
-    [SerializeField] public UnityEvent onStartDrag, onGetHeld, onStopBeingHeld;
+    [SerializeField] public UnityEvent onStartDrag, onStopDrag, onGetHeld, onStopBeingHeld;
     
     public Transform target, startPosition;
 
@@ -61,6 +61,8 @@ public class DraggableItemScript : MonoBehaviour
     {
         holdingDown = false;
         rb.drag = dragOutOfDrag;
+        
+        onStopDrag.Invoke();
     }
 
     public virtual void SetTarget(Transform newTarget)

@@ -70,7 +70,7 @@ public class EventOnGlobalEvent : MonoBehaviour
         }
     }
 
-    private void InvokeEvent()
+    public void InvokeEvent()
     {
         onEvent.Invoke();
     }
