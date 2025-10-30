@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class EventOnGlobalEvent : MonoBehaviour
 {
     [SerializeField] private EventManager.EventTypes eventType;
+    [SerializeField] private float invokeDelay;
     [SerializeField] private UnityEvent onEvent;
     
     private void OnEnable()
@@ -72,6 +73,12 @@ public class EventOnGlobalEvent : MonoBehaviour
 
     public void InvokeEvent()
     {
+        StartCoroutine(DelayedEvent());
+    }
+
+    private IEnumerator DelayedEvent()
+    {
+        yield return new WaitForSeconds(invokeDelay);
         onEvent.Invoke();
     }
 }

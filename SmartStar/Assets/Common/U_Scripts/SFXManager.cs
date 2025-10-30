@@ -49,9 +49,19 @@ public class SFXManager : MonoBehaviour
         PlayRandomSFX(universalCorrectSounds, VoiceCategory.VoiceLine);
     }
 
+    public AudioClip GetRandomCorrectSound()
+    {
+        return universalCorrectSounds[Random.Range(0, universalCorrectSounds.Length)];
+    }
+
     public void PlayIncorrectSound()
     {
         PlayRandomSFX(universalIncorrectSounds, VoiceCategory.VoiceLine);
+    }
+
+    public AudioClip GetRandomIncorrectSound()
+    {
+        return universalIncorrectSounds[Random.Range(0, universalIncorrectSounds.Length)];
     }
     
     public void PlayRandomSFX(AudioClip[] audioClips, Vector3 spawnPosition, float volume)
@@ -83,6 +93,12 @@ public class SFXManager : MonoBehaviour
     
     public void PlaySFXClip(AudioClip audioClip, VoiceCategory category = VoiceCategory.SFX, float volume = .75f, float minPitch = 1f, float maxPitch = 1f)
     {
+        if (audioClip == null)
+        {
+            Debug.LogError("SFX Clip is null");
+            return;
+        }
+        
         AudioSource audioSource;
 
         switch (category)
