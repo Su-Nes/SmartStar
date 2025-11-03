@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/World/MainScreen.unity
     guid: a8631ce88a33f5247b7af7d01c1b069b
   - enabled: 1
-    path: Assets/Resources/Chanting_anim_scene.unity
+    path: Assets/World/Stations/Chanting_anim_scene.unity
     guid: 4280aa4f6932bdd438290df7a3b1a149
   m_configObjects: {}

@@ -52,7 +52,7 @@ public class HintObject : MonoBehaviour
         timerActive = state;
     }
 
-    private void ResetTimer()
+    public void ResetTimer()
     {
         onDisableHint.Invoke();
         timer = 0f;

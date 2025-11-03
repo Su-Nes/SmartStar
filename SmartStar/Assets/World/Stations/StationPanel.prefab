@@ -407,8 +407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fde33bd4a9eb042a5f7cdb6d2e13af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnable: 1
   category: 1
-  onEnableLines: []
+  presetLines: []
 --- !u!1 &2798747381951394208
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventType: 3
+  invokeDelay: 0
   onEvent:
     m_PersistentCalls:
       m_Calls:
@@ -674,6 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventType: 4
+  invokeDelay: 0
   onEvent:
     m_PersistentCalls:
       m_Calls:

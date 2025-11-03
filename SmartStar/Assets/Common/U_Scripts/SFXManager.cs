@@ -42,6 +42,17 @@ public class SFXManager : MonoBehaviour
             audioStoppedEventInvoked = true;
             EventManager.Instance.InvokeOnAudioStop();
         }
+        
+        if(Input.GetKeyDown(KeyCode.M))
+            DestroyChildren(transform);
+    }
+    
+    private static void DestroyChildren(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     public void PlayCorrectSound()
@@ -95,7 +106,7 @@ public class SFXManager : MonoBehaviour
     {
         if (audioClip == null)
         {
-            Debug.LogError("SFX Clip is null");
+            //Debug.LogError("SFX Clip is null");
             return;
         }
         

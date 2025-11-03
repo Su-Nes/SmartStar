@@ -4,11 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
 public class LeaveStation : MonoBehaviour
 {
+    [SerializeField] private int stationIndex;
     private void Start()
     {
-        GetComponent<Button>().onClick.AddListener(StationSelector.Instance.CloseStations);
+        if (TryGetComponent(out Button button))
+        {
+            button.onClick.AddListener(StationSelector.Instance.CloseStations);
+            button.onClick.AddListener(SetStationComplete);
+        }
+    }
+
+    public void SetStationComplete()
+    {
+        DataPersistenceManager.Instance.SetStationAsComplete(stationIndex);
     }
 }
