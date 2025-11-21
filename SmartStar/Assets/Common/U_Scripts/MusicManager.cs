@@ -53,8 +53,11 @@ public class MusicManager : MonoBehaviour
             Debug.LogWarning("This scene has no related music track set!");
     }
     
-    private IEnumerator FadeIt(AudioClip clip, float volume)
+    public IEnumerator FadeIt(AudioClip clip, float volume)
     {//Add new audiosource and set it to all parameters of original audiosource
+        if (clip == null)
+            yield break;
+        
         AudioSource fadeOutSource = gameObject.AddComponent<AudioSource>();
         fadeOutSource.clip = GetComponent<AudioSource>().clip;
         fadeOutSource.time = GetComponent<AudioSource>().time;

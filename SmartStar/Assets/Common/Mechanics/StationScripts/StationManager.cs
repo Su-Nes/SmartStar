@@ -6,6 +6,8 @@ using UnityEngine;
 public class StationManager : MonoBehaviour
 {
     [SerializeField] private GameObject introScreen, mainScreen, outroScreen;
+    [SerializeField] private AudioClip stationSpecificMusic;
+    [SerializeField] private float musicVolume = .1f;
 
     private void OnEnable()
     {
@@ -13,6 +15,8 @@ public class StationManager : MonoBehaviour
         introScreen.SetActive(true);
         mainScreen.SetActive(false);
         outroScreen.SetActive(false);
+        
+        StartCoroutine(MusicManager.Instance.FadeIt(stationSpecificMusic, musicVolume));
     }
 
     public void StartStation()
@@ -32,6 +36,9 @@ public class StationManager : MonoBehaviour
     public void ExitStation()
     {
         Time.timeScale = 1f;
-        gameObject.SetActive(false);
+        if (transform.parent.TryGetComponent(out StationSelector stationSelector))
+        {
+            stationSelector.CloseStations();
+        }
     }
 }

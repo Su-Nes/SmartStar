@@ -169,6 +169,9 @@ MonoBehaviour:
   introScreen: {fileID: 2544299138929047605}
   mainScreen: {fileID: 785970007611542099}
   outroScreen: {fileID: 6227057295531572160}
+  defaultMusicTrack: {fileID: 8300000, guid: e965d8b3aa1c1394fafba194839b8da6, type: 3}
+  stationSpecificMusic: {fileID: 0}
+  musicVolume: 0.1
 --- !u!1 &785970007611542099
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad715995f4b5067479d0f0591b5e2dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationIndex: 0
 --- !u!114 &6562192491438776705
 MonoBehaviour:
   m_ObjectHideFlags: 0

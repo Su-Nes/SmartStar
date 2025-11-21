@@ -9,6 +9,7 @@ public class StationSelector : MonoBehaviour
     public static StationSelector Instance;
     
     [SerializeField] private GameObject[] stations;
+    [SerializeField] private AudioClip defaultMusicTrack;
     private string activeStation;
 
 
@@ -28,8 +29,7 @@ public class StationSelector : MonoBehaviour
     
     public void CreateStationWithName(string stationName)
     {
-        CloseStations();
-        
+        int stationIndex = 0;
         foreach (GameObject station in stations)
         {
             if (station.name.ToLower().Contains(stationName.ToLower()))
@@ -38,6 +38,7 @@ public class StationSelector : MonoBehaviour
                 activeStation = station.name;
                 break;
             }
+            stationIndex++;
         }
         
         if(activeStation == "")
@@ -51,5 +52,7 @@ public class StationSelector : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        
+        StartCoroutine(MusicManager.Instance.FadeIt(defaultMusicTrack, .01f));
     }
 }
