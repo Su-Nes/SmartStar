@@ -23,7 +23,9 @@ public class EventManager : MonoBehaviour
         onAudioStart,
         onAudioStop,
         onEnable,
-        onDisable
+        onDisable,
+        onTriggerEnter,
+        onTriggerExit
     }
     
     public static EventManager Instance;

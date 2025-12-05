@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/World/Stations/Chanting_anim_scene.unity
     guid: 4280aa4f6932bdd438290df7a3b1a149
+  - enabled: 1
+    path: Assets/Resources/FreeDraw/DrawingScene.unity
+    guid: 00dd01c5d19328f4d8d7fb3f186a04c7
   m_configObjects: {}

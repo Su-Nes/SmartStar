@@ -11,10 +11,16 @@ public class StationManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //Time.timeScale = 0f;
-        introScreen.SetActive(true);
-        mainScreen.SetActive(false);
-        outroScreen.SetActive(false);
+        if (introScreen != null)
+        {
+            introScreen.SetActive(true);
+            mainScreen.SetActive(false);
+            outroScreen.SetActive(false);
+        }
+        else
+        {
+            StartStation();
+        }
         
         StartCoroutine(MusicManager.Instance.FadeIt(stationSpecificMusic, musicVolume));
     }
@@ -23,7 +29,8 @@ public class StationManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         
-        introScreen.SetActive(false);
+        if(introScreen != null)
+            introScreen.SetActive(false);
         mainScreen.SetActive(true);
     }
 

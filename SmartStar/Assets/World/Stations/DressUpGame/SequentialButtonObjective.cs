@@ -9,7 +9,9 @@ public class SequentialButtonObjective : MonoBehaviour
 {
     [SerializeField] private Button[] buttons;
     [SerializeField] private AudioClip[] audioSequence;
+    [SerializeField] private PlayCombinedVoiceLine[] voiceSequences;
     private int buttonIndex;
+    [SerializeField] private bool disableButtonAfterClick = true;
 
     [SerializeField] private float nextButtonDelay = 1f;
 
@@ -28,7 +30,10 @@ public class SequentialButtonObjective : MonoBehaviour
             return;
         }
         
-        SFXManager.Instance.PlaySFXClip(audioSequence[buttonIndex], SFXManager.VoiceCategory.VoiceLine);
+        if(audioSequence.Length > voiceSequences.Length)
+            SFXManager.Instance.PlaySFXClip(audioSequence[buttonIndex], SFXManager.VoiceCategory.VoiceLine);
+        else 
+            voiceSequences[buttonIndex].OnEnable();
         
         int i = 0;
         foreach (Button button in buttons)
@@ -51,16 +56,17 @@ public class SequentialButtonObjective : MonoBehaviour
 
         if (audioSequence[buttonIndex - 1] == null)
         {
-            clips[1] = GetComponent<PlayCombinedVoiceLine>().presetLines[1];
+            clips[1] = GetComponents<PlayCombinedVoiceLine>()[0].presetLines[1];
         }
 
-        StartCoroutine(GetComponent<PlayCombinedVoiceLine>().PlayVoiceLines(clips));
+        StartCoroutine(GetComponents<PlayCombinedVoiceLine>()[0].PlayVoiceLines(clips));
     }
 
     private void ObjectiveClicked(Button button)
     {
         EventManager.Instance.InvokeOnCorrect();
-        button.gameObject.SetActive(false);
+        if(disableButtonAfterClick)
+            button.gameObject.SetActive(false);
         StartCoroutine(NextButtonDelay());
     }
 

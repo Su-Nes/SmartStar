@@ -57,7 +57,7 @@ public class SFXManager : MonoBehaviour
 
     public void PlayCorrectSound()
     {
-        PlayRandomSFX(universalCorrectSounds, VoiceCategory.VoiceLine);
+        PlayRandomSFX(universalCorrectSounds, VoiceCategory.SFX);
     }
 
     public AudioClip GetRandomCorrectSound()

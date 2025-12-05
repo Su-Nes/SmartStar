@@ -1065,7 +1065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Story
+      value: Story2
       objectReference: {fileID: 0}
     - target: {fileID: 5864177647868066378, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_Sprite
@@ -1239,7 +1239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Story
+      value: Story3
       objectReference: {fileID: 0}
     - target: {fileID: 5864177647868066378, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_Sprite
@@ -3997,6 +3997,7 @@ MonoBehaviour:
   - {fileID: 4629250889122178807, guid: d6a3db1faf7028c44a923af62d995942, type: 3}
   - {fileID: 3186985190632621283, guid: 7ef3900bcfada754ab48d15d119ddb72, type: 3}
   - {fileID: 3919228456278686098, guid: 4f9f5ef255e96fb49b1f526362444a58, type: 3}
+  - {fileID: 3919228456278686098, guid: 4ddf268cd5344e34896987b1284c1c19, type: 3}
   defaultMusicTrack: {fileID: 8300000, guid: e965d8b3aa1c1394fafba194839b8da6, type: 3}
 --- !u!1 &1931448248
 GameObject:
@@ -4323,7 +4324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171839367828690169, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Story
+      value: Story1
       objectReference: {fileID: 0}
     - target: {fileID: 5864177647868066378, guid: f2d49ac022c46ba449d4e48455a76730, type: 3}
       propertyPath: m_Sprite
@@ -4490,7 +4491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1092650857}
-  onAwakeIndex: 2
+  onAwakeIndex: 1
 --- !u!1001 &2042081725
 PrefabInstance:
   m_ObjectHideFlags: 0

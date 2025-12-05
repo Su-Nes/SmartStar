@@ -8,20 +8,20 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class SceneTransitioner : MonoBehaviour
 {
-    public static SceneTransitioner Instance;
+    //public static SceneTransitioner Instance;
 
     private Image overlay;
     [SerializeField] private float crossFadeTime = 1.5f;
 
     private void Awake()
     {
-        if(Instance == null)
+        /*if(Instance == null)
         {
             Instance = this;
         }else 
         {
             Destroy(gameObject);
-        }
+        }*/
             
         overlay = GetComponent<Image>();    
         overlay.enabled = true; // enable 'cause I've probably disabled the image in editor
@@ -38,7 +38,7 @@ public class SceneTransitioner : MonoBehaviour
     { 
         overlay.raycastTarget = true; // so ya can't click buttons while transitioning
         overlay.CrossFadeAlpha(1, crossFadeTime, true);
-        
+        print($"loading {sceneIndex}");
         yield return new WaitForSeconds(crossFadeTime);
         SceneManager.LoadScene(sceneIndex);
     }
